@@ -1,0 +1,167 @@
+<html>
+   
+<head>
+    <meta charset="UTF-8">
+    <title>ML API</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+    <div class="container">
+       <h1>Probability of CVD Indicator</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <!--legend>Cardio-Vascular diseases Prediction</legend-->
+            
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Age</label>
+            <input class="form-control" type="number" name="age"
+                placeholder="Enter your Reading score" min='0' max='100' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Sex</label>
+            <select class="form-control" name="sex" placeholder="0 for Female & 1 for Male" required>
+                <option class="placeholder" selected disabled value="">Select your Gender</option>    
+                <option value="1">
+                    1
+                </option>
+                <option value="0">
+                    0
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">cp</label>
+            <select class="form-control" name="cp" placeholder="cp" required>
+                <option class="placeholder" selected disabled value="">cp</option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+                <option value="3">
+                    3
+                </option>
+                <option value="0">
+                    0
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">trestbps</label>
+            <input class="form-control" type="number" name="trestbps"
+                placeholder="Enter your Reading score" min='0' max='500' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">chol</label>
+            <input class="form-control" type="number" name="chol"
+                placeholder="chol" min='0' max='500' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">fbs</label>
+            <select class="form-control" name="fbs" placeholder="fbs" required>
+                <option class="placeholder" selected disabled value="">fbs</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">thalach</label>
+            <input class="form-control" type="number" name="thalach"
+                placeholder="thalach" min='0' max='500' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">exang</label>
+            <select class="form-control" name="exang" placeholder="exang" required>
+                <option class="placeholder" selected disabled value="">exang</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">oldpeak</label>
+            <input class="form-control" type="number" name="oldpeak"
+                placeholder="oldpeak" min='0' max='10' />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">slope</label>
+            <select class="form-control" name="slope" placeholder="slope" required>
+                <option class="placeholder" selected disabled value="">slope</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">ca</label>
+            <select class="form-control" name="ca" placeholder="ca" required>
+                <option class="placeholder" selected disabled value="">ca</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">thal</label>
+            <select class="form-control" name="thal" placeholder="thal" required>
+                <option class="placeholder" selected disabled value="">thal</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+                <option value="2">
+                    2
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">restecg</label>
+            <select class="form-control" name="restecg" placeholder="restecg" required>
+                <option class="placeholder" selected disabled value="">restecg</option>
+                <option value="0">
+                    0
+                </option>
+                <option value="1">
+                    1
+                </option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict probability of CVD" required />
+        </div>
+    </form>
+    <h2>
+       The prediction for CVD is {{results}}
+    </h2>
+   <body>
+</html>
